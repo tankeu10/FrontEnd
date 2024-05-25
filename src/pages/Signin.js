@@ -1,13 +1,14 @@
 import styles from '../styles/Signup.css';
+import { Link } from 'react-router-dom'
 import React, { useState } from 'react';
 
 
 const Signin = () => {
   const [formData, setFormData] = useState({
-   
+
     email: '',
     password: '',
-  
+
   });
 
   const [errors, setErrors] = useState({});
@@ -22,10 +23,10 @@ const Signin = () => {
 
   const validate = () => {
     const errors = {};
-    
+
     if (!formData.email) errors.email = 'Email est requis';
     if (!formData.password) errors.password = 'Mot de passe est requis';
-   
+
     return errors;
   };
 
@@ -35,7 +36,7 @@ const Signin = () => {
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length === 0) {
       console.log('Formulaire envoyé', formData);
-      
+
     }
   };
 
@@ -43,7 +44,7 @@ const Signin = () => {
     <div className="signup-container">
       <h2>Connexion</h2>
       <form onSubmit={handleSubmit}>
-    
+
         <div className="form-group">
           <label>Email</label>
           <input
@@ -52,6 +53,7 @@ const Signin = () => {
             value={formData.email}
             onChange={handleChange}
           />
+
           {errors.email && <span className="error">{errors.email}</span>}
         </div>
         <div className="form-group">
@@ -64,9 +66,19 @@ const Signin = () => {
           />
           {errors.password && <span className="error">{errors.password}</span>}
         </div>
-        
+
         <button type="submit">Connexion</button>
+
       </form>
+      <p>
+        vous n'avez pas de compte? Cliquez <Link to='/Signup'>
+          <span>
+            ici
+          </span>
+
+        </Link>
+
+      </p>
     </div>
   );
 };

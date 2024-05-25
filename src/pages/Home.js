@@ -12,7 +12,7 @@ function Home() {
         <div>
         <h1> SOVEREINCLOUD, the future</h1>
         <p> Cloud storage you can count on</p>
-        <Link to ='/Signup'>
+        <Link to ='/Signin'>
         <button>
           ORDER NOW
         </button>
